@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { franchiseDatabase } from '../../features/franchise-info/types/types';
+import { ChatbotButton, ChatbotPopup } from '../../features/chatbot/components/popup';
 
 // Register Chart.js components
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -13,6 +14,7 @@ export const FranchiseInfo = () => {
     const [timeRange, setTimeRange] = useState('1y');
     const [franchiseData, setFranchiseData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
     useEffect(() => {
         // Simulate API call
@@ -405,6 +407,10 @@ export const FranchiseInfo = () => {
                     </>
                 )}
             </div>
+            
+            {/* Chatbot Button and Popup */}
+            <ChatbotButton onClick={() => setIsChatbotOpen(prev => !prev)} />
+            <ChatbotPopup isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
         </div>
     );
 };

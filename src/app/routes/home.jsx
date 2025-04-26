@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { SearchBar } from '../../features/home/components/search-bar';
 import { GradientBanner } from '../../features/home/components/banner';
 import { CategoryGrid } from '../../features/home/components/category-grid';
+import { ChatbotButton, ChatbotPopup } from '../../features/chatbot/components/popup';
 
 export const Home = () => {
+    const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
+    const toggleChatbot = () => {
+        setIsChatbotOpen(prev => !prev);
+    };
 
     return (
         <div className="flex flex-col h-full">
@@ -21,6 +27,10 @@ export const Home = () => {
 
                 <CategoryGrid />
             </div>
+            
+            {/* Chatbot Button and Popup */}
+            <ChatbotButton onClick={toggleChatbot} />
+            <ChatbotPopup isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
         </div>
     );
 };
