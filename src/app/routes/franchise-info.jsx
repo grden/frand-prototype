@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { franchiseDatabase } from '../../features/franchise-info/types/types';
-import { ChatbotButton, ChatbotPopup } from '../../features/chatbot/components/popup';
+import { ChatbotButton } from '../../features/chatbot/components/button';
+import { ChatbotPopup } from '../../features/chatbot/components/popup';
 
 // Register Chart.js components
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -381,8 +382,8 @@ export const FranchiseInfo = () => {
                                 <h3 className="text-lg font-semibold mb-4">뉴스 요약</h3>
                                 <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                                     {franchiseData.news.map((newsItem, index) => (
-                                        <div 
-                                            key={index} 
+                                        <div
+                                            key={index}
                                             className="bg-white p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
                                         >
                                             <div className="flex-1">
@@ -407,7 +408,7 @@ export const FranchiseInfo = () => {
                     </>
                 )}
             </div>
-            
+
             {/* Chatbot Button and Popup */}
             <ChatbotButton onClick={() => setIsChatbotOpen(prev => !prev)} />
             <ChatbotPopup isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />

@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { subcategoryDatabase } from '../../features/subcategory-info/types/types';
-import { ChatbotButton, ChatbotPopup } from '../../features/chatbot/components/popup';
+import { ChatbotPopup } from '../../features/chatbot/components/popup';
+import { ChatbotButton } from '../../features/chatbot/components/button';
 
 // Register Chart.js components
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -376,7 +377,7 @@ export const SubcategoryInfo = () => {
                     </>
                 )}
             </div>
-            
+
             {/* Chatbot Button and Popup */}
             <ChatbotButton onClick={() => setIsChatbotOpen(prev => !prev)} />
             <ChatbotPopup isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
