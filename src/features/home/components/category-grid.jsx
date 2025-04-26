@@ -22,7 +22,7 @@ export const CategoryGrid = () => {
                     <button
                         key={category.id}
                         onClick={() => handleCategoryClick(category.id)}
-                        className="flex flex-col items-center justify-center p-3 bg-white rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
+                        className="flex flex-col items-center justify-center p-2 bg-white rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
                     >
                         <span className="text-2xl mb-2">{category.emoji}</span>
                         <span className="text-sm font-medium">{category.name}</span>
